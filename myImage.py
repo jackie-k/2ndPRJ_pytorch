@@ -11,7 +11,9 @@ trans = transforms.Compose([transforms.Resize((100, 100)),
                             transforms.ToTensor(),
                             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
                             ])
-trainset = torchvision.datasets.ImageFolder(root="/Users/data-16/Desktop/clothes",
+# trainset = torchvision.datasets.ImageFolder(root="/Users/data-16/Desktop/clothes",
+#                                             transform=trans)
+trainset = torchvision.datasets.ImageFolder(root="/Users/data16/Desktop/clothes",
                                             transform=trans)
 
 trainset.__getitem__(3)
