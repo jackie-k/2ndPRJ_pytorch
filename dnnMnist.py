@@ -127,25 +127,25 @@ columns = 6
 rows = 6
 fig = plt.figure(figsize=(10, 10))
 
-model.eval()
-for i in range(1, columns*rows+1):
-    data_idx = np.random.randint(len(test_data))
-    input_img = test_data[data_idx][0].unsqueeze(dim=0).to(device)
-
-    output = model(input_img)
-    _, argmax = torch.max(output, 1)
-    pred = label_tags[argmax.item()]
-    label = label_tags[test_data[data_idx][1]]
-
-    fig.add_subplot(rows, columns, i)
-    if pred == label:
-        plt.title(pred + 'right!!')
-        cmap = 'Blues'
-    else:
-        plt.title('Not' + pred + 'but' + label)
-        cmap = 'Reds'
-    plot_img = test_data[data_idx][0][0,:,:]
-    plt.imshow(plot_img, cmap=cmap)
-    plt.axis('off')
+# model.eval()
+# for i in range(1, columns*rows+1):
+#     data_idx = np.random.randint(len(test_data))
+#     input_img = test_data[data_idx][0].unsqueeze(dim=0).to(device)
+#
+#     output = model(input_img)
+#     _, argmax = torch.max(output, 1)
+#     pred = label_tags[argmax.item()]
+#     label = label_tags[test_data[data_idx][1]]
+#
+#     fig.add_subplot(rows, columns, i)
+#     if pred == label:
+#         plt.title(pred + 'right!!')
+#         cmap = 'Blues'
+#     else:
+#         plt.title('Not' + pred + 'but' + label)
+#         cmap = 'Reds'
+#     plot_img = test_data[data_idx][0][0,:,:]
+#     plt.imshow(plot_img, cmap=cmap)
+#     plt.axis('off')
 
 plt.show()
